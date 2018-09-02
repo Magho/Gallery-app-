@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, pipe } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ngx-bootstrap';
-import { ImageService } from './image/shared/image.service';
-import { ImageFilterPipe } from './image/shared/filter.pipe';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImageComponent } from './image/image.component';
+import { ImageService } from './image/shared/image.service';
+import { ImageFilterPipe } from './image/shared/filter.pipe';
+import { appRoutes } from '../routes';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ImageComponent } from './image/image.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ImageService, ImageFilterPipe],
   bootstrap: [AppComponent]
